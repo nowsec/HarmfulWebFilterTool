@@ -122,11 +122,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="packetInitFunction.cpp" />
+    <ClCompile Include="packetInitFunction.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="strFunction.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="head.h" />
+    <ClInclude Include="main.h" />
+    <ClInclude Include="PacketFunction.h" />
+    <ClInclude Include="strFunction.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

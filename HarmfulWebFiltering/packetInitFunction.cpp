@@ -1,6 +1,7 @@
-#include "head.h"
+#include "main.h"
+#include "PacketFunction.h"
 
-extern void PacketIpInit(PWINDIVERT_IPHDR packet)
+void PacketIpInit(PWINDIVERT_IPHDR packet)
 {
 	memset(packet, 0, sizeof(WINDIVERT_IPHDR));
 	packet->Version = 4;
@@ -12,7 +13,7 @@ extern void PacketIpInit(PWINDIVERT_IPHDR packet)
 /*
 * Initialize a TCPPACKET.
 */
-extern void PacketIpTcpInit(PTCPPACKET packet)
+void PacketIpTcpInit(PTCPPACKET packet)
 {
 	memset(packet, 0, sizeof(TCPPACKET));
 	PacketIpInit(&packet->ip);
@@ -24,7 +25,7 @@ extern void PacketIpTcpInit(PTCPPACKET packet)
 /*
 * Initialize an ICMPPACKET.
 */
-extern void PacketIpIcmpInit(PICMPPACKET packet)
+void PacketIpIcmpInit(PICMPPACKET packet)
 {
 	memset(packet, 0, sizeof(ICMPPACKET));
 	PacketIpInit(&packet->ip);
@@ -34,7 +35,7 @@ extern void PacketIpIcmpInit(PICMPPACKET packet)
 /*
 * Initialize a PACKETV6.
 */
-extern void PacketIpv6Init(PWINDIVERT_IPV6HDR packet)
+void PacketIpv6Init(PWINDIVERT_IPV6HDR packet)
 {
 	memset(packet, 0, sizeof(WINDIVERT_IPV6HDR));
 	packet->Version = 6;
@@ -44,7 +45,7 @@ extern void PacketIpv6Init(PWINDIVERT_IPV6HDR packet)
 /*
 * Initialize a TCPV6PACKET.
 */
-extern void PacketIpv6TcpInit(PTCPV6PACKET packet)
+void PacketIpv6TcpInit(PTCPV6PACKET packet)
 {
 	memset(packet, 0, sizeof(TCPV6PACKET));
 	PacketIpv6Init(&packet->ipv6);
@@ -56,7 +57,7 @@ extern void PacketIpv6TcpInit(PTCPV6PACKET packet)
 /*
 * Initialize an ICMP PACKET.
 */
-extern void PacketIpv6Icmpv6Init(PICMPV6PACKET packet)
+void PacketIpv6Icmpv6Init(PICMPV6PACKET packet)
 {
 	memset(packet, 0, sizeof(ICMPV6PACKET));
 	PacketIpv6Init(&packet->ipv6);
